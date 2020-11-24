@@ -1,4 +1,4 @@
-# word-to-pdf
+# WordToPdf Converter
 
 ```
 npm install
@@ -10,9 +10,6 @@ node app.js
 ```
 
 use the command to start the application
-
-you will find the page on 
->localhost:3000
 
 globally on 🌎 
 https://shamiwordpdf.herokuapp.com/
