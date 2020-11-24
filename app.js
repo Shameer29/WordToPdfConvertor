@@ -6,10 +6,7 @@ var path = require('path');
 var fs = require('fs');
 app.use(express.static('public'));
 
-const extend_pdf = '.pdf'
-const extend_docx = '.docx'
 
-var down_name
 
 app.use(upload());
 
@@ -32,23 +29,7 @@ app.post('/upload',function(req,res){
     file.mv(uploadpath,function(err){
       if(err){
         console.log(err);
-      }else{
-        //Path of the downloaded or uploaded file
-        var initialPath = path.join(__dirname, `./uploads/${First_name}${extend_docx}`);
-        //Path where the converted pdf will be placed/uploaded
-        var upload_path = path.join(__dirname, `./uploads/${First_name}${extend_pdf}`);
-        //Converter to convert docx to pdf -->docx-pdf is used
-        //If you want you can use any other converter
-        //For example -- libreoffice-convert or --awesome-unoconv
-        docxConverter(initialPath,upload_path,function(err,result){
-        if(err){
-          console.log(err);
-        }
-        console.log('result'+result);
-        res.sendFile(__dirname+'/down_html.html')
-        });
       }
-    });
   }else{
     res.send("No File selected !");
     res.end();
